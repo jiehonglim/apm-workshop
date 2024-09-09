@@ -19,7 +19,7 @@ def initElastic():
     # Decode the output from bytes to string
     service_url = output.decode().strip()
 
-    with open('env.yaml') as myfile:
+    with open('../env.yaml') as myfile:
         for line in myfile:
             key, value = line.partition('=')[::2]
             elastic_service[key.strip()] = str(value).replace("\n", "")

@@ -25,7 +25,7 @@ def initElastic():
             elastic_service[key.strip()] = str(value).replace("\n", "")
         
     ELASTIC_APM = {
-    'SERVICE_NAME': 'streamlit_test',
+    'SERVICE_NAME': 'streamlit-app',
     'SECRET_TOKEN': elastic_service['elastic-apm-secret-token'],
     'SERVER_URL': 'http://' + service_url + ':8200',
     'ENVIRONMENT': 'Py Prod',

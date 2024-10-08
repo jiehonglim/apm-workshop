@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elastic RUM Demo - Core Web Vitals</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: 0 auto; }
+        h1 { color: #1a75ff; }
+        .section { margin-bottom: 30px; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
+        #lcp-demo img { max-width: 100%; height: auto; }
+        #inp-demo button { padding: 10px 20px; font-size: 16px; margin: 10px; }
+        #cls-demo .box { width: 100px; height: 100px; background-color: #1a75ff; margin: 10px; display: inline-block; }
+        #result { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Elastic Real User Monitoring Demo</h1>
+
+    <div class="section" id="lcp-demo">
+        <h2>Largest Contentful Paint (LCP)</h2>
+        <p>LCP measures loading performance. The image below is the largest contentful paint element:</p>
+        <img src="https://via.placeholder.com/1024x768?text=Large+Image+for+LCP" alt="Large image for LCP demonstration" loading="lazy">
+    </div>
+
+    <!-- Elastic APM RUM script -->
+    <script>
+        ;(function(d, s, c) {
+            var j = d.createElement(s),
+            t = d.getElementsByTagName(s)[0]
+            j.src = 'https://unpkg.com/@elastic/apm-rum/dist/bundles/elastic-apm-rum.umd.min.js'
+            j.onload = function() {elasticApm.init(c)}
+            t.parentNode.insertBefore(j, t)
+        })(document, 'script', {serviceName: 'static web app', serverUrl: 'https://9ad5bf81b8874b74bf69a5acc4f26886.apm.asia-southeast1.gcp.elastic-cloud.com:443'})
+        </script>
+</body>
+</html>
